@@ -1,0 +1,28 @@
+header {
+  text-align: center;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 5px 15px;
+  max-width: 550px;
+}
+
+#backgroundImage {
+  background: linear-gradient(#1c61a1aa, #4f1ca1aa), url(./images/backgroundImage.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
