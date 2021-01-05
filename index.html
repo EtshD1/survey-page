@@ -18,29 +18,31 @@
 
   <div class="container">
     <form id="survey-form">
-      <div>
+      <div class="spacing">
         <label id="name-label">Name:
           <input type="text" id="name" name="name" placeholder="Mike Tyson" required />
         </label>
       </div>
-      <div>
+      <div class="spacing">
         <label id="email-label">E-mail:
           <input type="text" id="email" name="email" placeholder="notMikeTyson@domain.com" required />
         </label>
       </div>
-      <div>
+      <div class="spacing">
         <label id="number-label">Age:
           <input type="number" min="1" step="1" max="120" placeholder="24" id="number" name="age" required />
         </label>
       </div>
-      <p>How did find this survey:</p>
-      <select name="dropdown" id="dropdown" required>
-        <option value="" selected hidden disabled>Select an option</option>
-        <option value="codepen">Codepen</option>
-        <option value="github">Github</option>
-        <option value="other">Other</option>
-      </select>
-      <div>
+      <div class="spacing">
+        <p>How did find this survey:</p>
+        <select name="dropdown" id="dropdown" required>
+          <option value="" selected hidden disabled>Select an option</option>
+          <option value="codepen">Codepen</option>
+          <option value="github">Github</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="spacing">
         <p>What do you think of this form?</p>
         <label>
           <input type="radio" name="rate" value="good">
@@ -55,7 +57,8 @@
           I do not like it
         </label>
       </div>
-      <div>
+      <div class="spacing">
+        <p>What do you think I could improve?</p>
         <label>
           <input type="checkbox" name="improvement" value="design">
           Frontend Design
@@ -69,14 +72,22 @@
           Responsiveness
         </label>
       </div>
-      <div>
+      <div class="spacing">
         <label>
           <p>Any comments?</p>
-          <textarea placeholder="What do you think?" name="comment" rows="10"></textarea>
+          <textarea placeholder="What do you think?" name="comment" rows="5"></textarea>
         </label>
       </div>
-      <input type="submit" value="Submit">
+      <input id="submit" type="submit" value="Submit">
     </form>
+  </div>
+
+  <div id="photoInfo">
+    <div>Photo by <a
+        href="https://unsplash.com/@frantic?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Alex
+        Kotliarskyi</a> on <a
+        href="https://unsplash.com/s/photos/programming?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>
+    </div>
   </div>
 
   <div id="backgroundImage"></div>
