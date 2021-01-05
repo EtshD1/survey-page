@@ -1,5 +1,23 @@
+@font-face {
+  font-family: Nunito;
+  src: url(./fonts/Nunito-Regular.ttf);
+}
+
+@font-face {
+  font-family: Nunito;
+  src: url(./fonts/Nunito-Italic.ttf);
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Nunito;
+  src: url(./fonts/Nunito-Bold.ttf);
+  font-weight: 700;
+}
+
 header {
   text-align: center;
+  padding-top: 15px;
 }
 
 * {
@@ -8,9 +26,17 @@ header {
   box-sizing: border-box;
 }
 
+label, input:not([type="radio"], [type="checkbox"]) {
+  display: block;
+}
+
+label, p {
+  color: #fff;
+}
+
 .container {
   margin: 0 auto;
-  padding: 5px 15px;
+  padding: 5px 25px;
   max-width: 550px;
 }
 
