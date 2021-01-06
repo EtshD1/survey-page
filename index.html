@@ -45,7 +45,7 @@
       <div class="spacing">
         <p>What do you think of this form?</p>
         <label>
-          <input type="radio" name="rate" value="good">
+          <input type="radio" name="rate" value="good" checked>
           I like it
         </label>
         <label>
@@ -60,15 +60,15 @@
       <div class="spacing">
         <p>What do you think I could improve?</p>
         <label>
-          <input type="checkbox" name="improvement" value="design">
-          Frontend Design
+          <input type="checkbox" class="improvement" name="improvement" value="design" checked>
+          Design
         </label>
         <label>
-          <input type="checkbox" name="improvement" value="code">
+          <input type="checkbox" class="improvement" name="improvement" value="code">
           Code
         </label>
         <label>
-          <input type="checkbox" name="improvement" value="responsiveness">
+          <input type="checkbox" class="improvement" name="improvement" value="responsiveness">
           Responsiveness
         </label>
       </div>
@@ -91,6 +91,29 @@
   </div>
 
   <div id="backgroundImage"></div>
+
+  <script>
+    const form = document.querySelector("#survey-form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const submission = {
+        Name: form["name"].value,
+        Email: form["email"].value,
+        Age: form["age"].value,
+        Found: form["dropdown"].value,
+        Rate: form["rate"].value,
+        Improvements: [],
+        Comment: form["comment"].value
+      }
+      document.querySelectorAll('.improvement').forEach(checkbox => {
+        if (checkbox.checked) {
+          submission.Improvements.push(checkbox.value);
+        }
+      });
+      alert("Thank you for checking out this form\nUnfortunately, your submission won't be sent anywhere. But still thanks alot for the attempt!");
+      console.log(`Oh you found me...\nOkay here's your info:`, submission);
+    });
+  </script>
 
 </body>
 
