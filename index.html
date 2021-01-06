@@ -19,23 +19,23 @@
   <div class="container">
     <form id="survey-form">
       <div class="spacing">
-        <label id="name-label">Name:
+        <label id="name-label" class="input-area">Name:
           <input type="text" id="name" name="name" placeholder="Mike Tyson" required />
         </label>
       </div>
       <div class="spacing">
-        <label id="email-label">E-mail:
+        <label id="email-label" class="input-area">E-mail:
           <input type="text" id="email" name="email" placeholder="notMikeTyson@domain.com" required />
         </label>
       </div>
       <div class="spacing">
-        <label id="number-label">Age:
+        <label id="number-label" class="input-area">Age:
           <input type="number" min="1" step="1" max="120" placeholder="24" id="number" name="age" required />
         </label>
       </div>
       <div class="spacing">
         <p>How did find this survey:</p>
-        <select name="dropdown" id="dropdown" required>
+        <select name="dropdown" id="dropdown" class="input-area" required>
           <option value="" selected hidden disabled>Select an option</option>
           <option value="codepen">Codepen</option>
           <option value="github">Github</option>
@@ -44,36 +44,36 @@
       </div>
       <div class="spacing">
         <p>What do you think of this form?</p>
-        <label>
+        <label class="input-label">
           <input type="radio" name="rate" value="good" checked>
           I like it
         </label>
-        <label>
+        <label class="input-label">
           <input type="radio" name="rate" value="neutral">
           Not much
         </label>
-        <label>
+        <label class="input-label">
           <input type="radio" name="rate" value="dislike">
           I do not like it
         </label>
       </div>
       <div class="spacing">
         <p>What do you think I could improve?</p>
-        <label>
+        <label class="input-label">
           <input type="checkbox" class="improvement" name="improvement" value="design" checked>
           Design
         </label>
-        <label>
+        <label class="input-label">
           <input type="checkbox" class="improvement" name="improvement" value="code">
           Code
         </label>
-        <label>
+        <label class="input-label">
           <input type="checkbox" class="improvement" name="improvement" value="responsiveness">
           Responsiveness
         </label>
       </div>
       <div class="spacing">
-        <label>
+        <label class="input-area">
           <p>Any comments?</p>
           <textarea placeholder="What do you think?" name="comment" rows="5"></textarea>
         </label>
@@ -93,26 +93,34 @@
   <div id="backgroundImage"></div>
 
   <script>
-    const form = document.querySelector("#survey-form");
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const submission = {
-        Name: form["name"].value,
-        Email: form["email"].value,
-        Age: form["age"].value,
-        Found: form["dropdown"].value,
-        Rate: form["rate"].value,
-        Improvements: [],
-        Comment: form["comment"].value
-      }
-      document.querySelectorAll('.improvement').forEach(checkbox => {
-        if (checkbox.checked) {
-          submission.Improvements.push(checkbox.value);
+    (() => {
+      const birthday = new Date(1966, 5, 30);
+      const today = new Date();
+      const age = today.getFullYear() - birthday.getFullYear() - 1 + (today.getMonth() >= birthday.getMonth() ? 1 : 0);
+
+      const form = document.querySelector("#survey-form");
+
+      document.querySelector("#number").placeholder = age
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const submission = {
+          Name: form["name"].value,
+          Email: form["email"].value,
+          Age: form["age"].value,
+          Found: form["dropdown"].value,
+          Rate: form["rate"].value,
+          Improvements: [],
+          Comment: form["comment"].value
         }
+        document.querySelectorAll('.improvement').forEach(checkbox => {
+          if (checkbox.checked) {
+            submission.Improvements.push(checkbox.value);
+          }
+        });
+        alert("Thank you for checking out this form\nUnfortunately, your submission won't be sent anywhere. But still thanks alot for the attempt!");
+        console.log(`Oh you found me...\nOkay here's your info:`, submission);
       });
-      alert("Thank you for checking out this form\nUnfortunately, your submission won't be sent anywhere. But still thanks alot for the attempt!");
-      console.log(`Oh you found me...\nOkay here's your info:`, submission);
-    });
+    })()
   </script>
 
 </body>
